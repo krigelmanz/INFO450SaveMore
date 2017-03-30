@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include <iostream>
 #include <string>
+#include <ctime>
 using namespace std;
 
 // Create base class
@@ -20,6 +21,7 @@ protected:
 	double withdcount = 0;
 // Public variables
 public:
+	char date[10];
 	int ID;
 // Empty constructor
 	Account()
@@ -32,6 +34,7 @@ public:
 // Constructor with balance variable
 	Account(double b)
 	{
+		_strdate_s(date);
 		ID = IDGenerator++;
 		rate = 0; balance = b;
 	};
@@ -137,6 +140,7 @@ public:
 void Savings::Display()
 {
 	cout << "Account Number: " << ID << endl;
+	cout << "Account created: " << date << endl;
 	cout.precision(2);
 	cout << "Starting balance: " << fixed << balance << endl;
 	cout << "Total deposits: " << deposit << endl;
@@ -156,6 +160,7 @@ void Checking::Display()
 	string checks;
 	double lowBalanceFee = 0;
 	cout << "Account Number: " << ID << endl;
+	cout << "Account created: " << date << endl;
 	cout.precision(2);
 	cout << "Starting balance: " << fixed << balance << endl;
 	if (checkOrder == 'n' || checkOrder == 'N')
@@ -184,6 +189,7 @@ void Checking::Display()
 void Deposit::Display()
 {
 	cout << "Account Number: " << ID << endl;
+	cout << "Account created: " << date << endl;
 	cout.precision(2);
 	cout << "Starting balance: " << fixed << balance << endl;
 	cout << "Total deposits: " << deposit << endl;
